@@ -37,12 +37,13 @@ class UserServiceTest extends TestCase
                 ['id' => 1, 'first_name' => 'John', 'last_name' => 'Doe', 'job' => 'Engineer'],
                 ['id' => 2, 'first_name' => 'Jane', 'last_name' => 'Doe', 'job' => 'Engineer']
             ]])),
-            new Response(201, [], json_encode(['data' => [
-                'id' => 100,
-                'name' => 'John Doe',
+            new Response(201, [], json_encode([
+                'id' => 1,
+                'first_name' => 'John',
+                'last_name' => 'Doe',
                 'job' => 'Engineer',
                 'createdAt' => '2024-07-18T19:37:32.604Z'
-            ]]))
+            ]))
         ]);
 
         $handlerStack = HandlerStack::create($mock);
