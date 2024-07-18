@@ -97,12 +97,12 @@ class UserService
             ]);
             $data = json_decode($response->getBody()->getContents(), true);
 
-            if (isset($data['id'])) {
+            if (isset($data['data']['id'])) {
                 return new User(
-                    $data['id'],
-                    $data['name'],
-                    $data['job'],
-                    $data['createdAt'],
+                    $data['data']['id'],
+                    $data['data']['first_name'] . ' ' . $data['data']['last_name'],
+                    $data['data']['job'],
+                    $data['data']['createdAt']
                 );
             } else {
                 throw new \Exception('Failed to create user');
