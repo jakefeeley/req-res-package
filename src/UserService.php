@@ -95,12 +95,12 @@ class UserService
             $response = $this->client->post('https://reqres.in/api/users', [
                 'json' => ['name' => $name, 'job' => $job]
             ]);
-            $data = json_decode($response->getBody()->getContents(), true)['data'];
+            $data = json_decode($response->getBody()->getContents(), true);
 
             if (isset($data['id'])) {
                 return new User(
                     $data['id'],
-                    $data['first_name'] . ' ' . $data['last_name'],
+                    $data['name'],
                     $data['job'],
                     $data['createdAt'],
                 );
