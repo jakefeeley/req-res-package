@@ -84,5 +84,6 @@ class UserServiceTest extends TestCase
         $this->assertInstanceOf(User::class, $user);
         $this->assertEquals('Engineer', $user->getJob());
         $this->assertEquals('John Doe', $user->getName());
+        $this->assertEquals('2023-01-01T00:00:00.000Z', $user->getCreatedAt());
     }
 }
