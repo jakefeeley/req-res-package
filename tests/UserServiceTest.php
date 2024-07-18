@@ -30,19 +30,19 @@ class UserServiceTest extends TestCase
                 'first_name' => 'John',
                 'last_name' => 'Doe',
                 'job' => 'Engineer',
-                'createdAt' => '2023-01-01T00:00:00.000Z'
+                'createdAt' => '2024-07-18T19:37:32.604Z'
 
             ]])),
             new Response(200, [], json_encode(['data' => [
                 ['id' => 1, 'first_name' => 'John', 'last_name' => 'Doe', 'job' => 'Engineer'],
                 ['id' => 2, 'first_name' => 'Jane', 'last_name' => 'Doe', 'job' => 'Engineer']
             ]])),
-            new Response(201, [], json_encode([
+            new Response(201, [], json_encode(['data' => [
                 'id' => 100,
                 'name' => 'John Doe',
                 'job' => 'Engineer',
-                'createdAt' => '2023-01-01T00:00:00.000Z'
-            ]))
+                'createdAt' => '2024-07-18T19:37:32.604Z'
+            ]]))
         ]);
 
         $handlerStack = HandlerStack::create($mock);
@@ -84,6 +84,6 @@ class UserServiceTest extends TestCase
         $this->assertInstanceOf(User::class, $user);
         $this->assertEquals('Engineer', $user->getJob());
         $this->assertEquals('John Doe', $user->getName());
-        $this->assertEquals('2023-01-01T00:00:00.000Z', $user->getCreatedAt());
+        $this->assertEquals('2024-07-18T19:37:32.604Z', $user->getCreatedAt());
     }
 }

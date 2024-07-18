@@ -39,7 +39,7 @@ class UserService
             if (isset($data['data'])) {
                 return new User(
                     $data['data']['id'],
-                    $data['data']['first_name'] . ' ' . $data['data']['last_name'],
+                    $data['data']['first_name'] . ' ' . $data['data']['last_name']
                 );
             } else {
                 throw new \Exception('User not found');
@@ -70,7 +70,7 @@ class UserService
                 return array_map(function ($userData) {
                     return new User(
                         $userData['id'],
-                        $userData['first_name'] . ' ' . $userData['last_name'],
+                        $userData['first_name'] . ' ' . $userData['last_name']
                     );
                 }, $data['data']);
             } else {
@@ -97,7 +97,7 @@ class UserService
             ]);
             $data = json_decode($response->getBody()->getContents(), true);
 
-            if (isset($data['data']['id'])) {
+            if (isset($data['data'])) {
                 return new User(
                     $data['data']['id'],
                     $data['data']['first_name'] . ' ' . $data['data']['last_name'],
