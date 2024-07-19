@@ -97,16 +97,19 @@ class UserService
             ]);
             $data = json_decode($response->getBody()->getContents(), true);
 
-            if (isset($data['data'])) {
-                return new User(
-                    $data['data']['id'],
-                    $data['data']['first_name'] . ' ' . $data['data']['last_name'],
-                    $data['data']['job'],
-                    $data['data']['createdAt']
-                );
-            } else {
-                throw new \Exception('Failed to create user');
+            $data = $data['data'] ?? $data;
+
+            $name = $data['first_name'] ?? $data['name'];
+            if (isset($data['last_name'])) {
+                $name .= ' ' . $data['last_name'];
             }
+
+            return new User(
+                $data['id'],
+                $name,
+                $data['job'],
+                $data['createdAt']
+            );
         } catch (RequestException $e) {
             throw new \Exception('API request failed: ' . $e->getMessage());
         }

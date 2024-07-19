@@ -39,7 +39,7 @@ class UserServiceTest extends TestCase
             ]])),
             new Response(201, [], json_encode([
                 'id' => 1,
-                'first_name' => 'John',
+                'name' => 'John',
                 'last_name' => 'Doe',
                 'job' => 'Engineer',
                 'createdAt' => '2024-07-18T19:37:32.604Z'
