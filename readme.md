@@ -4,10 +4,20 @@ This package provides a service for interacting with the ReqRes API to retrieve 
 
 ## Installation
 
-You can install the package via Composer. Run the following command:
+This package has not been submitted to Packagist, currently, the only way to install is via modifying your composer.json file.
 
-```bash
-composer require jakefeeley/reqres-package
+Add the following to your composer.json file
+
+```json
+"require-dev": {
+    "jakefeeley/req-res-package": "^1.0"
+},
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/jakefeeley/req-res-package"
+    }
+],
 ```
 
 ## Usage
@@ -30,7 +40,7 @@ To retrieve a user by their ID, use the `getUserById` method:
 
 ```php
 $user = $userService->getUserById(1);
-echo $user->getName();  //Outputs: "George Bluth"
+echo $user->getName();
 ```
 
 ### Retrieving a List of Users
